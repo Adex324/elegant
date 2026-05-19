@@ -1,11 +1,17 @@
 import { useState, useEffect } from "react";
 
-const navLinks = ["Home", "Shop", "About", "Gallery", "Contact"];
+// Define links with URLs
+const navLinks = [
+  { name: "Home", href: "/" },
+  { name: "Shop", href: "/shop" },
+  { name: "About", href: "/about" },
+  { name: "Gallery", href: "/gallery" },
+  { name: "Contact", href: "/contact" },
+];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState("Home");
   const [isMobile, setIsMobile] = useState(false);
 
   // Handle scroll effect for desktop only
@@ -41,28 +47,27 @@ export default function Navbar() {
           {/* Left spacer - empty for centering links */}
           <div className="w-24 md:w-32"></div>
 
-          {/* Desktop Nav Links - Centered */}
+          {/* Desktop Nav Links - Centered, actual anchor tags */}
           <div className="hidden md:flex items-center justify-center gap-8 lg:gap-10">
             {navLinks.map((link) => (
-              <button
-                key={link}
-                onClick={() => setActiveLink(link)}
-                className={`relative text-[11px] tracking-[0.18em] uppercase font-light bg-transparent border-none cursor-pointer pb-0.5 transition-colors duration-300 after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-px after:bg-purple-700 after:transition-all after:duration-300 ${
-                  activeLink === link
-                    ? "text-purple-700 after:w-full"
-                    : "text-neutral-700 hover:text-purple-700 after:w-0 hover:after:w-full"
-                }`}
+              <a
+                key={link.name}
+                href={link.href}
+                className="relative text-base font-light bg-transparent cursor-pointer pb-0.5 text-neutral-700 hover:text-[#800080] transition-colors duration-300 after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-px after:bg-[#800080] after:transition-all after:duration-300 after:w-0 hover:after:w-full"
               >
-                {link}
-              </button>
+                {link.name}
+              </a>
             ))}
           </div>
 
           {/* Desktop Right Side - Only Shop Now Button */}
           <div className="hidden md:flex items-center justify-end">
-            <button className="text-[11px] tracking-[0.2em] uppercase font-normal bg-[#800080] text-white rounded-full px-6 py-2.5 hover:bg-[#800080] transition-all duration-300 hover:-translate-y-px shadow-md hover:shadow-purple-300/50 hover:shadow-lg">
+            <a
+              href="/shop"
+              className="text-sm font-normal bg-[#800080] text-white rounded-full px-6 py-2.5 hover:bg-[#800080]/90 transition-all duration-300 hover:-translate-y-px shadow-md hover:shadow-purple-300/50 hover:shadow-lg"
+            >
               Shop Now
-            </button>
+            </a>
           </div>
 
           {/* Mobile Hamburger */}
@@ -90,28 +95,29 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Overlay Menu */}
+      {/* Mobile Overlay Menu - actual links */}
       <div
-        className={`fixed inset-0 z-40 md:hidden bg-purple-50 flex flex-col items-center justify-center gap-10 transition-opacity duration-300 ${
+        className={`fixed inset-0 z-40 md:hidden bg-purple-50 flex flex-col items-center justify-center gap-10 transition-opacity duration-300 font-geist ${
           menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
         {navLinks.map((link) => (
           <a
-            key={link}
-            href="#"
-            onClick={() => { setActiveLink(link); setMenuOpen(false); }}
-            className="font-geist italic font-medium text-base  hover:text-purple-700 transition-colors duration-200 tracking-wide"
+            key={link.name}
+            href={link.href}
+            onClick={() => setMenuOpen(false)}
+            className="text-xl font-medium text-neutral-800 hover:text-[#800080] transition-colors duration-200"
           >
-            {link}
+            {link.name}
           </a>
         ))}
-        <button
+        <a
+          href="/shop"
           onClick={() => setMenuOpen(false)}
-          className="mt-4 text-[11px] tracking-[0.2em] uppercase font-normal bg-[#800080] text-white rounded-full px-8 py-3 hover:bg-[#800080] transition-all duration-300"
+          className="mt-4 text-sm font-normal bg-[#800080] text-white rounded-full px-8 py-3 hover:bg-[#800080]/90 transition-all duration-300"
         >
           Shop Now
-        </button>
+        </a>
       </div>
     </>
   );
