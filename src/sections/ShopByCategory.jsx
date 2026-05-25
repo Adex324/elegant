@@ -55,7 +55,7 @@ const ShopByCategory = () => {
 
             {/* Label */}
             <p className="absolute bottom-4 left-4 text-white text-sm sm:text-base md:text-lg font-medium leading-snug">
-              {/* {cat.name} */}
+              {cat.name}
             </p>
           </div>
         ))}
