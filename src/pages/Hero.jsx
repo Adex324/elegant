@@ -2,6 +2,8 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import backgroundImage from '../assets/hero_background.png';
 import green_star from "../assets/green_star.svg";
+import Shop_now from '../sections/Shop_now';
+import ShopByCategory from '../sections/ShopByCategory';
 
 const Hero = () => {
   return (
@@ -49,6 +51,8 @@ const Hero = () => {
           </button>
         </div>
       </div>
+      <Shop_now />
+      <ShopByCategory />
     </section>
   );
 };

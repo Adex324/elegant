@@ -9,3 +9,22 @@
 @utility font-geist {
   font-family: var(--font-geist);
 }
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee {
+  display: inline-block;
+  animation: marquee 12s linear infinite;
+  white-space: nowrap;
+}
+
+/* Optional: pause on hover */
+.marquee:hover {
+  animation-play-state: paused;
+}
