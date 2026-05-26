@@ -4,6 +4,7 @@ import backgroundImage from '../assets/hero_background.png';
 import green_star from "../assets/green_star.svg";
 import Shop_now from '../sections/Shop_now';
 import ShopByCategory from '../sections/ShopByCategory';
+import Reviews from '../sections/Reviews';
 
 const Hero = () => {
   return (
@@ -53,6 +54,7 @@ const Hero = () => {
       </div>
       <Shop_now />
       <ShopByCategory />
+      <Reviews/>
     </section>
   );
 };
