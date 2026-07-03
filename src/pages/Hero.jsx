@@ -5,6 +5,8 @@ import green_star from "../assets/green_star.svg";
 import Shop_now from '../sections/Shop_now';
 import ShopByCategory from '../sections/ShopByCategory';
 import Reviews from '../sections/Reviews';
+import New_arrivals from '../sections/New_arrivals';
+import About_section from '../sections/About_section';
 
 const Hero = () => {
   return (
@@ -54,7 +56,10 @@ const Hero = () => {
       </div>
       <Shop_now />
       <ShopByCategory />
+      <New_arrivals />
+      <About_section/>
       <Reviews/>
+      
     </section>
   );
 };
