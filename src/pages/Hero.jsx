@@ -7,6 +7,8 @@ import ShopByCategory from '../sections/ShopByCategory';
 import Reviews from '../sections/Reviews';
 import New_arrivals from '../sections/New_arrivals';
 import About_section from '../sections/About_section';
+import Services from '../sections/Services';
+import Footer from '../sections/Footer';
 
 const Hero = () => {
   return (
@@ -59,6 +61,8 @@ const Hero = () => {
       <New_arrivals />
       <About_section/>
       <Reviews/>
+      <Services/>
+      <Footer/>
       
     </section>
   );
